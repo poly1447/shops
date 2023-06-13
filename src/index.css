@@ -1,0 +1,148 @@
+/* В стилях зададим минимальную высоту для контентной части за вычетом высоты шапки и подвала. */
+.content {
+  min-height: calc(100vh - 70px - 64px);
+}
+
+.goods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.cart {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  border-radius: 5%;
+  z-index: 5;
+  padding: 1rem;
+}
+@media (min-width: 767px){
+  .cart {
+    bottom: unset;
+    top: 5rem;
+  }
+}
+.material-icons {
+  font-size: 35px;
+}
+
+.basket-list {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 50rem;
+  max-width: 95%;
+  box-shadow: 1px 3px 8px 5px #4dd0e1;
+  animation: show 500ms ease-in-out;
+}
+
+.basket-clear {
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #fff;
+}
+
+@keyframes show {
+  from {
+    top: 70%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+.basket-quantity {
+  cursor: pointer;
+  vertical-align: middle;
+  color: #4dd0e1;
+  font-size: 20px;
+}
+
+#toast-container {
+  top: 3rem !important;
+  animation: fade-in 250ms ease-in-out;
+  -webkit-animation: fade-in 250ms ease-in-out;
+}
+@keyframes fade-in {
+  from {
+    transform: translateY(2rem);
+    opacity: 0;
+    -webkit-transform: translateY(2rem);
+    -moz-transform: translateY(2rem);
+    -ms-transform: translateY(2rem);
+    -o-transform: translateY(2rem);
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+    -webkit-transform: translateY(0rem);
+    -moz-transform: translateY(0rem);
+    -ms-transform: translateY(0rem);
+    -o-transform: translateY(0rem);
+  }
+}
+
+.card .card-image .card-title {
+  color: #000000;
+  position: relative;
+}
+
+.basket-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(57, 57, 57, 0.5);
+  /* Затемнение заднего фона */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  
+  /* Поместите корзину поверх всего остального содержимого */
+}
+
+body.basket-modal {
+  height: 100vh;
+  overflow-y: hidden;
+}
+.basket-container {
+  background-color: #fefefe;
+  padding: 10px;
+  border: 1px solid #888;
+  max-width: 50%;
+}
+
+.basket-container .collection {
+  margin-bottom: 5px;
+}
+
+.basket-container .collection-item.active {
+  color: #fff;
+}
+
+.basket-container .collection-item.active.red.darken-2 {
+  background-color: #f44336;
+}
+
+.basket-container .collection-item.red.darken-2 {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.basket-container .collection-item .material-icons.basket-clear {
+  cursor: pointer;
+}
+
+.basket-container .collection-item .material-icons.basket-clear:hover {
+  color: #f44336;
+}
